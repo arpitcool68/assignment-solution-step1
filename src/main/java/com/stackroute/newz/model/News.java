@@ -42,7 +42,7 @@ public class News {
         return null;
     }
 
-    public void settitle(String title) {
+    public void setTitle(String title) {
         
     }
 
