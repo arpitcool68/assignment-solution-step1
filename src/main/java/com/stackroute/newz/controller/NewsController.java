@@ -1,14 +1,29 @@
 package com.stackroute.newz.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /* 
  * Annotate the class with @Controller annotation. @Controller annotation is used to mark 
  * any java class as a controller so that Spring can recognize this class as a Controller 
  */
 
+@Controller
 public class NewsController {
-	
+
+	@RequestMapping("/helloworld")
+	public String hello(ModelMap map) {
+
+		String helloWorldMessage = "Hello world from java2blog!";
+		String welcomeMessage = "Welcome to  java2blog!";
+		map.addAttribute("helloMessage", helloWorldMessage);
+		map.addAttribute("welcomeMessage", welcomeMessage);
+
+		return "index";
+	}
+
+
 	/*
 	 * From the problem statement, we can understand that the application
 	 * requires us to implement the following functionalities.

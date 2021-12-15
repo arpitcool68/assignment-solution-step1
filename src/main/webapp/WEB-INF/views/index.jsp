@@ -8,7 +8,9 @@
 
 </head>
 <body>
-
+${helloMessage}
+<br/>
+${welcomeMessage}
 	<!-- Create a form which will have text boxes for News ID, title, author,description, content
 		 along with a Send button. Handle errors like empty fields -->
 

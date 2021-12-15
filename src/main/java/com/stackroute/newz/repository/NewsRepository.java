@@ -1,8 +1,10 @@
 package com.stackroute.newz.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.stackroute.newz.model.News;
+import org.springframework.stereotype.Repository;
 
 
 /*
@@ -11,12 +13,14 @@ import com.stackroute.newz.model.News;
  * of this class will be used by other parts of the applications such
  * as Controllers and Test Cases
  * */
+@Repository
 public class NewsRepository {
 	
 	/* Declare a variable called "newsList" to store all the news. */
     private List<News> newsList;
 
     public NewsRepository() {
+        newsList = new ArrayList<>();
     	/* Initialize the variable using proper data type */
     }
 
@@ -27,7 +31,7 @@ public class NewsRepository {
 
     /* This method should set the list variable with new list of news */
     public void setNewsList(List<News> newsList) {
-        
+        this.newsList = newsList;
     }
 
     /*
@@ -35,20 +39,27 @@ public class NewsRepository {
 	 * list
 	 */
     public  void addNews(News news) {
-        
+        for(News newsObj : newsList){
+            if(newsObj.getNewsId() == news.getNewsId()){
+                System.out.println("News already there.");
+            }
+        }
+        newsList.add(news);
     }
     
     /* This method should return the list of news */
     public List<News> getAllNews() {
-        return null;
+        return newsList;
     }
     
     /* This method should delete a specified news from the list */
     public boolean deleteNews(int newsId) {
-       
-        return false;
-       
 
+        boolean isDeleted = false;
+        if(newsList.removeIf(news -> news.getNewsId()==newsId)){
+            isDeleted = true;
+        }
+        return isDeleted;
     }
   
 }

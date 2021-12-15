@@ -20,7 +20,12 @@ public class News {
 	 * setters for the fields. The value of publishedAt should not be accepted from
 	 * the user but should be always initialized with the system date
 	 */
-    
+    private int newsId;
+    private String title;
+    private String author;
+    private String description;
+    private LocalDateTime publishedAt;
+    private String content;
 
 	
     public News() {
@@ -29,58 +34,66 @@ public class News {
 
     
     /* All the getters/setters definition should be implemented here */
-    
+
     public int getNewsId() {
-        return 0;
+        return newsId;
     }
 
     public void setNewsId(int newsId) {
-        
+        this.newsId = newsId;
     }
 
     public String getTitle() {
-        return null;
+        return title;
     }
 
     public void setTitle(String title) {
-        
+        this.title = title;
     }
 
     public String getAuthor() {
-        return null;
+        return author;
     }
 
     public void setAuthor(String author) {
-        
+        this.author = author;
     }
 
     public String getDescription() {
-        return null;
+        return description;
     }
 
     public void setDescription(String description) {
-        
+        this.description = description;
     }
 
     public LocalDateTime getPublishedAt() {
-        return null;
+        return publishedAt;
     }
 
     public void setPublishedAt(LocalDateTime publishedAt) {
-        
+        this.publishedAt = publishedAt;
     }
 
     public String getContent() {
-        return null;
+        return content;
     }
 
     public void setContent(String content) {
-        
+        this.content = content;
     }
-    
+
     /* Override the toString() method */
+
     @Override
     public String toString() {
-        return null;
+        return "News{" +
+                "newsId=" + newsId +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                ", publishedAt=" + publishedAt +
+                ", content='" + content + '\'' +
+                '}';
     }
 }
