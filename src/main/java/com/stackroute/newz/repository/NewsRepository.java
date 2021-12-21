@@ -1,5 +1,6 @@
 package com.stackroute.newz.repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,16 +18,15 @@ import org.springframework.stereotype.Repository;
 public class NewsRepository {
 	
 	/* Declare a variable called "newsList" to store all the news. */
-    private List<News> newsList;
+    private List<News> newsList = new ArrayList<News>();
 
     public NewsRepository() {
-        newsList = new ArrayList<>();
     	/* Initialize the variable using proper data type */
     }
 
     /* This method should return all the news in the list */
     public List<News> getNewsList() {
-        return null;
+        return newsList;
     }
 
     /* This method should set the list variable with new list of news */
@@ -44,6 +44,7 @@ public class NewsRepository {
                 System.out.println("News already there.");
             }
         }
+        news.setPublishedAt(LocalDateTime.now());
         newsList.add(news);
     }
     

@@ -49,8 +49,8 @@ public class NewsControllerTest {
     }
 
     @Test
-    void saveData() throws Exception {
-        mockMvc.perform(post("/saveData").param("newsId", "1").param("title", "Cricket").param("author", "Sachin")
+    void saveNews() throws Exception {
+        mockMvc.perform(post("/saveNews").param("newsId", "1").param("title", "Cricket").param("author", "Sachin")
                 .param("description", "This is Cricket match between India vs Australia").param("content", "This is First ODI between India and Australia")).andExpect(redirectedUrl("/"));
 
     }
@@ -63,25 +63,25 @@ public class NewsControllerTest {
 
     @Test
     public void testAddNewsEmptyTitleFailure() throws Exception {
-        mockMvc.perform(post("/saveData").param("newsId", "1").param("title", "").param("author", "Sachin")
+        mockMvc.perform(post("/saveNews").param("newsId", "1").param("title", "").param("author", "Sachin")
                 .param("description", "This is Cricket match between India vs Australia").param("content", "This is First ODI between India and Australia")).andExpect(redirectedUrl("/"));
     }
 
     @Test
     public void testAddNewsEmptyAuthorFailure() throws Exception {
-        mockMvc.perform(post("/saveData").param("newsId", "1").param("title", "Cricket").param("author", "")
+        mockMvc.perform(post("/saveNews").param("newsId", "1").param("title", "Cricket").param("author", "")
                 .param("description", "This is Cricket match between India vs Australia").param("content", "This is First ODI between India and Australia")).andExpect(redirectedUrl("/"));
     }
 
     @Test
     public void testAddNewsEmptyDescriptionFailure() throws Exception {
-        mockMvc.perform(post("/saveData").param("newsId", "1").param("title", "Cricket").param("author", "Sachin")
+        mockMvc.perform(post("/saveNews").param("newsId", "1").param("title", "Cricket").param("author", "Sachin")
                 .param("description", "").param("content", "This is First ODI between India and Australia")).andExpect(redirectedUrl("/"));
     }
 
     @Test
     public void testAddNewsEmptyContentFailure() throws Exception {
-        mockMvc.perform(post("/saveData").param("newsId", "1").param("title", "Cricket").param("author", "Sachin")
+        mockMvc.perform(post("/saveNews").param("newsId", "1").param("title", "Cricket").param("author", "Sachin")
                 .param("description", "This is Cricket match between India vs Australia").param("content", "")).andExpect(redirectedUrl("/"));
     }
 
